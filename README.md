@@ -1,24 +1,44 @@
-# README
+# 防災アイテム管理アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+防災アイテムを管理するサイト
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+予測困難な災害に備えて防災アイテムを用意・管理する
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+近い将来、南海トラフ巨大地震などの災害が予想される中、
+防災アイテムの用意や非常食の消費期限の管理を行えることで、災害対策として役割を果たすだけでなく、フードロス改善にも寄与できると考えたため。
+また、離れて暮らす家族の防災アイテムの状態も確認できれば、１人暮らしの学生様やご高齢者様に、事前連絡や必要なものを送り合うこともでき、
+コロナ禍で帰省する機会も減っている中、家族の繋がりや優しさを改めて実感することにも繋がるのではないかと考えたため。
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+防災アイテムを用意、管理したい一般ユーザ
+(家族の世帯主、１人暮らしの学生様、ご高齢者様)
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+防災アイテムを用意する時とその後の管理
 
-* ...
+## 設計書
+
+PF テーマ + チャレンジ要素一覧 が合格後に作成予定
+
+## チャレンジ要素一覧
+
+https://docs.google.com/spreadsheets/d/1jKTnBCMaX4IB_FZJaf-rdghgh6gBl26gRLa-PLLwngg/edit#gid=0
+
+## 開発環境
+
+- OS：Amazon Linux
+- 言語：HTML,CSS,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- IDE：Cloud9
+
+## 使用素材
+
+- ICOOON MONO 　https://icooon-mono.com/
