@@ -41,7 +41,8 @@
 
 ## 設計書
 
-- PF テーマ + チャレンジ要素一覧 が合格後に作成予定
+- ER図　https://app.diagrams.net/#G1lyt2ZofMbncodDx8ubkHhD3SQxTBmmE6
+- テーブル定義書　https://docs.google.com/spreadsheets/d/1jB6yqH4yboO8m42fOSp3BLldCyci4n1b27rGN4_7Uu8/edit#gid=1243549839
 
 ## チャレンジ要素一覧
 
