@@ -31,7 +31,8 @@
 ### ターゲットユーザ
 
 - 防災アイテムを用意、管理したい一般ユーザ
-- (家族の世帯主、１人暮らしの学生様、ご高齢者様)
+
+(家族の世帯主、１人暮らしの学生様、ご高齢者様)
 
 ### 主な利用シーン
 
@@ -41,12 +42,14 @@
 
 ## 設計書
 
+- UI_Flows https://app.diagrams.net/#G1zIK7hZnBjWoCw0EGv0l1B7e-B9dZKTP7
 - ER図　https://app.diagrams.net/#G1lyt2ZofMbncodDx8ubkHhD3SQxTBmmE6
 - テーブル定義書　https://docs.google.com/spreadsheets/d/1jB6yqH4yboO8m42fOSp3BLldCyci4n1b27rGN4_7Uu8/edit#gid=1243549839
+- 詳細設計　https://docs.google.com/spreadsheets/d/1phVK8Tch6d9L5mIK9_XD-WSvZOwijQRb/edit#gid=549108681
 
 ## チャレンジ要素一覧
 
-https://docs.google.com/spreadsheets/d/1jKTnBCMaX4IB_FZJaf-rdghgh6gBl26gRLa-PLLwngg/edit#gid=0
+- https://docs.google.com/spreadsheets/d/1jKTnBCMaX4IB_FZJaf-rdghgh6gBl26gRLa-PLLwngg/edit#gid=0
 
 ## 開発環境
 
