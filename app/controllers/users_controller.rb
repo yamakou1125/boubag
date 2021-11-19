@@ -21,6 +21,10 @@ class UsersController < ApplicationController
   end
 
   def withdraw
+    @user = current_user
+    @user.update(is_active: true)
+    reset_session
+    redirect_to users_thanks_path
   end
 
   def thanks
