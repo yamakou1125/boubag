@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  attachment :profile_image
+
 end
