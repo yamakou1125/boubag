@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  root to: 'homes#top'
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   get 'users/my_page' => 'users#mypage'
   get '/users/unsubscribe' => 'users#unsubscribe'
   patch '/users/withdraw' => 'users#withdraw'
@@ -9,5 +8,5 @@ Rails.application.routes.draw do
   get '/users/search' => 'users#search'
   resources :users, only: [:edit, :update, :show]
 
-
+  root to: 'homes#top'
 end
