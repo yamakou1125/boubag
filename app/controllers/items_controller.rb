@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def index
+    @items = current_user.items
   end
 
   def show
