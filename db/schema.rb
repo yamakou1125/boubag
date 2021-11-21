@@ -10,11 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_20_073210) do
+ActiveRecord::Schema.define(version: 2021_11_21_024354) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.integer "type", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "amount", null: false
+    t.date "expiration_date"
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
