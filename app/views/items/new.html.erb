@@ -1,1 +1,59 @@
-new
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <h1>
+        アイテム新規登録
+      </h1>
+    </div>
+  </div>
+
+  <% if @item.errors.any? %>
+  <div class="row">
+    <p class="text-danger">
+      <%= @item.errors.count %>件の未入力の項目があります。
+    </p>
+  </div>
+  <div class="row">
+    <% @item.errors.full_messages.each do |message| %>
+      <p class="text-danger">
+        <%= "・" + message %>
+      </p>
+    <% end %>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-6">
+      <%= form_with model:@item, local:true do |f| %>
+      <div>
+        <%= f.label :name, "アイテム名" %>
+      </div>
+      <div>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :category_id, "カテゴリ" %>
+      </div>
+      <div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "選択してください") %>
+      </div>
+      <div>
+        <%= f.label :amount, "個数" %>
+      </div>
+      <div>
+        <%= f.text_field :amount %>
+      </div>
+      <div>
+        <%= f.label :expiration_date, "有効期限" %>
+      </div>
+      <div>
+        <%= f.date_select :expiration_date, use_month_numbers: true, start_year: Time.now.year, end_year: 2030, prompt:"--" %>
+      </div>
+      <div>
+        <%= f.submit "登録", class: "btn btn-success" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
