@@ -1,1 +1,52 @@
-edit
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <h1>
+        アイテム編集
+      </h1>
+    </div>
+  </div>
+
+  <% if @item.errors.any? %>
+  <div class="row">
+    <p class="text-danger">
+      <%= @item.errors.count %>件の未入力の項目があります。
+    </p>
+  </div>
+  <div class="row">
+    <% @item.errors.full_messages.each do |message| %>
+      <p class="text-danger">
+        <%= "・" + message %>
+      </p>
+    <% end %>
+  </div>
+  <% end %>
+
+  <%= form_with model:@item, local:true do |f| %>
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-4">
+      <%= f.label :name, "アイテム名" %>
+    </div>
+    <div class="col-md-4 col-sm-4 col-4">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row">
+  　<div class="col-md-4 col-sm-4 col-4">
+      <%= f.label :amount, "個数" %>
+    </div>
+    <div class="col-md-4 col-sm-4 col-4">
+      <%= f.text_field :amount %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-4">
+      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
