@@ -42,6 +42,15 @@
   </div>
 
   <div class="row">
+  　<div class="col-md-4 col-sm-4 col-4">
+      <%= f.label :expiration_date, "有効期限" %>
+    </div>
+    <div class="col-md-4 col-sm-4 col-4">
+      <%= f.date_select :expiration_date, use_month_numbers: true, start_year: Time.now.year, end_year: 2030, prompt:"--" %>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-4 col-sm-4 col-4">
       <%= f.submit "変更を保存", class: "btn btn-success" %>
     </div>
