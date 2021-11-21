@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get '/users/search' => 'users#search'
   resources :users, only: [:edit, :update, :show]
   resources :categories, only: [:index]
+  resources :items
 
 end
