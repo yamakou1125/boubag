@@ -1,1 +1,20 @@
-search
+<div class="container">
+  <div class="row">
+    <div>
+      <%= form_tag({controller:"users",action:"search"}, method: :get) do %>
+        <%= text_field_tag :search %>
+        <%= submit_tag 'ユーザを探す', :name => nil %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <% @users.each do |user| %>
+    <div class="col-md-6 col-sm-6 col-6">
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
+    </div>
+    <div class="col-md-6 col-sm-6 col-6">
+      <%= user.name %>
+    </div>
+    <% end %>
+  </div>
+</div>
