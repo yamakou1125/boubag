@@ -55,7 +55,12 @@
       <%= f.submit "変更を保存", class: "btn btn-success" %>
     </div>
   </div>
-
   <% end %>
+
+  <div class="row">
+    <div class="col-md-4 col-sm-4 col-4">
+      <%= link_to "削除する", item_path(@item.id), method: :delete, class: "btn btn-danger" %>
+    </div>
+  </div>
 
 </div>
