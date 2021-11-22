@@ -7,14 +7,16 @@
       <% end %>
     </div>
   </div>
+
   <div class="row">
     <% @users.each do |user| %>
-    <div class="col-md-6 col-sm-6 col-6">
+    <div class="col-md-4 col-sm-4 col-4">
       <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
     </div>
-    <div class="col-md-6 col-sm-6 col-6">
+    <div class="col-md-4 col-sm-4 col-4">
       <%= user.name %>
     </div>
     <% end %>
   </div>
+
 </div>
