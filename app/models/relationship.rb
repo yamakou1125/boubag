@@ -1,6 +1,6 @@
 class Relationship < ApplicationRecord
 
-  enum status: { unapproved: 0, allow: 1, reject: 2 }
+  enum status: { unapproved: 0, allow: 1, decline: 2 }
 
   belongs_to :follower, class_name: "User"
   belongs_to :followed, class_name: "User"

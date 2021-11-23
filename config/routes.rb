@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   patch '/users/withdraw' => 'users#withdraw'
   get '/users/thanks' => 'users#thanks'
   get '/users/search' => 'users#search'
-  resources :users, only: [:edit, :update, :show]
+  resources :users, only: [:edit, :update, :show] do
+    resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings'
+    get 'followers' => 'relationships#followers'
+  end
   resources :categories, only: [:index]
   resources :items
-  resource :relationships, only: [:create, :destroy]
-  get '/relationships/followings' => 'relationships#followings'
-  get '/relationships/followers' => 'relationships#followers'
+
 
 end

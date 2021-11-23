@@ -22,7 +22,7 @@ class User < ApplicationRecord
       end
   end
 
-  # フォローしたときの処理
+  # フォロリク送信したときの処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
