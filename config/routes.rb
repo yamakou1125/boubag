@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resource :relationships, only: [:create, :update, :destroy]
     get 'followings' => 'relationships#followings'
     get 'followers' => 'relationships#followers'
+    patch 'decline' => 'relationships#decline'
   end
   resources :categories, only: [:index]
   resources :items
