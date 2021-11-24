@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/users/thanks' => 'users#thanks'
   get '/users/search' => 'users#search'
   resources :users, only: [:edit, :update, :show] do
-    resource :relationships, only: [:create, :destroy]
+    resource :relationships, only: [:create, :update, :destroy]
     get 'followings' => 'relationships#followings'
     get 'followers' => 'relationships#followers'
   end

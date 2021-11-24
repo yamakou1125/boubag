@@ -16,7 +16,7 @@
       <%= user.name %>
     </div>
     <div class="col-md-4 col-sm-4 col-4">
-      許可する・しないのボタン
+      <%= link_to "許可する", user_relationships_path(user.id), method: :patch, class: "btn btn-primary" %>
     </div>
     <% end %>
   </div>

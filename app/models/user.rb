@@ -26,6 +26,10 @@ class User < ApplicationRecord
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
+  # フォロリク承認
+  def allow(user_id)
+    reverse_of_relationships.find_by(follower_id: user_id).update(status: 1)
+  end
   # フォローを外すときの処理
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
