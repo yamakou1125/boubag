@@ -2,13 +2,34 @@
   <div class="row">
     <div class="col-md-12 col-sm-12 col-12">
       <h1>
-        フォロワー一覧
+        フォロワー
       </h1>
     </div>
   </div>
 
   <div class="row">
-    <% @users.each do |user| %>
+    <% @allows.each do |a| %>
+     <% user = a.follower %>
+    <div class="col-md-3 col-sm-3 col-3">
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
+    </div>
+    <div class="col-md-3 col-sm-3 col-3">
+      <%= user.name %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <h1>
+        承認待ち一覧
+      </h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @unapproved.each do |u| %>
+     <% user = u.follower %>
     <div class="col-md-3 col-sm-3 col-3">
       <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
     </div>
@@ -19,7 +40,7 @@
       <%= link_to "許可する", user_relationships_path(user.id), method: :patch, class: "btn btn-primary" %>
     </div>
     <div class="col-md-3 col-sm-3 col-3">
-      <%= link_to "拒否する", user_decline_path(user.id), method: :patch, class: "btn btn-danger" %>
+      <%= link_to "拒否する", user_relationships_path(user.id), method: :delete, class: "btn btn-danger" %>
     </div>
     <% end %>
   </div>
