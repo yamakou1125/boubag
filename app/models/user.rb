@@ -30,7 +30,11 @@ class User < ApplicationRecord
   def allow(user_id)
     reverse_of_relationships.find_by(follower_id: user_id).update(status: 1)
   end
-  # フォローを外すとき、フォロリクを拒否する時の処理
+  # フォロリクを拒否する時の処理
+  def decline(user_id)
+    reverse_of_relationships.find_by(follower_id: user_id).destroy
+  end
+  # フォローを外すとき
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end

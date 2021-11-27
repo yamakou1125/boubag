@@ -15,6 +15,11 @@ class RelationshipsController < ApplicationController
     current_user.allow(params[:user_id])
     redirect_to request.referer
   end
+  # フォロリク拒否
+  def decline
+    current_user.decline(params[:user_id])
+    redirect_to request.referer
+  end
   # フォロー中と承認待ち一覧
   def followings
     user = User.find(params[:user_id])
