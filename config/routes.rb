@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers'
     delete 'decline' => 'relationships#decline'
   end
-  resources :categories, only: [:index]
+  resources :categories, only: [:index, :show]
   resources :items
 
 

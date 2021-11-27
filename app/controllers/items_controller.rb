@@ -37,14 +37,14 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     date = params.require(:item).permit(:expiration_date)
-    # year month day hitotudemo kara deareba true!
+    # 年 月 日 １つでも 空 であれば true
     if params[:item]["expiration_date(1i)"].blank? || params[:item]["expiration_date(2i)"].blank? || params[:item]["expiration_date(3i)"].blank?
       if @item.update(item_params)
         redirect_to item_path(@item.id)
       else
         render :edit
       end
-    else # subete karajanakereba
+    else # 全て 空でなければ
       expiration_date = Date.parse( date["expiration_date(1i)"] + "-" + date["expiration_date(2i)"] + "-" + date["expiration_date(3i)"] )
       if @item.update(item_params.merge(expiration_date: expiration_date))
         redirect_to item_path(@item.id)

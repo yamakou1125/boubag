@@ -1,10 +1,31 @@
 <div class="container">
   <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <h1>
+        カテゴリ一覧
+      </h1>
+    </div>
+  </div>
+  <div class="row">
     <% @categories.each do |category| %>
     <div class="col-md-12 col-sm-12 col-12">
-      <%= category.name %>
+      <%= link_to category_path(category.id), method: :get do %>
+        <%= category.name %>
+      <% end %>
     </div>
     <% end %>
   </div>
-  <%= link_to "アイテム登録", new_item_path %>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <%= link_to "アイテム登録", new_item_path, class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-12">
+      <%= link_to "全アイテムを見る", items_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+
 </div>
