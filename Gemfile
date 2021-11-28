@@ -68,3 +68,6 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem "enum_help"
+
+# 環境変数を導入
+gem 'dotenv-rails'
