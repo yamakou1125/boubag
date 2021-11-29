@@ -7,10 +7,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     date = params.require(:item).permit(:expiration_date)
-    # year month day hitotudemo kara deareba true!
+    # 年 月 日 １つでも 空 であれば true
     if params[:item]["expiration_date(1i)"].blank? || params[:item]["expiration_date(2i)"].blank? || params[:item]["expiration_date(3i)"].blank?
       @item.user_id = current_user.id
-    else # subete karajanakereba
+    else # # 全て 空でなければ
       expiration_date = Date.parse( date["expiration_date(1i)"] + "-" + date["expiration_date(2i)"] + "-" + date["expiration_date(3i)"] )
       @item = Item.new(item_params.merge(expiration_date: expiration_date))
       @item.user_id = current_user.id
@@ -58,6 +58,20 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
+  end
+
+  def check
+    @today = Date.today
+    @items = Item.all
+    @items.each do |item|
+      @d1 = Item.expiration_date
+      @difference = @d1 - @today
+      if @difference == 14
+        NotificationMailer.send_first_notice(item).deliver
+　    elsif difference == 0
+        NotificationMailer.send_last_notice(item).deliver
+      end
+    end
   end
 
   private
