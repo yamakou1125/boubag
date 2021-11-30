@@ -12,7 +12,4 @@ class NotificationMailer < ApplicationMailer
     mail to: @user.email, subject: '【boubag】 防災アイテム交換のお知らせ'
   end
 
-    def check1
-    NotificationMailer.send_last_notice(item).deliver
-    end
 end
