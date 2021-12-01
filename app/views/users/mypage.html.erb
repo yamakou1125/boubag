@@ -1,10 +1,12 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-12">
-      <h1>
-        マイページ
-      </h1>
+  <div class="row mb-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <h3>
+        <strong>
+          マイページ
+        </strong>
+      </h3>
     </div>
   </div>
 
@@ -12,23 +14,25 @@
     <div class="col-md-4 col-sm-4 col-4">
       <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
     </div>
-    <div class="col-md-4 col-sm-4 col-4">
-      <%= link_to "フォロー一覧", user_followings_path(@user.id), class: "btn btn-primary" %>
-    </div>
-    <div class="col-md-4 col-sm-4 col-4">
-      <%= link_to "フォロワー一覧", user_followers_path(@user.id), class: "btn btn-primary" %>
+    <div class="col-md-8 col-sm-8 col-8">
+      <h4>
+        <%= @user.followers.count %>
+      </h4>
+      <%= link_to "フォロワー", user_followers_path(@user.id), class: "btn btn-primary" %>
+      <h4>
+        <%= @user.followings.count %>
+      </h4>
+      <%= link_to "フォロー中", user_followings_path(@user.id), class: "btn btn-primary" %>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-4 col-sm-4 col-4">
-      <P>
-        名前
-      </P>
-    </div>
-    <div class="col-md-4 col-sm-4 col-4">
+    <div class="col-md-4 col-sm-4 col-4 mb-3">
       <%= @user.name %>
     </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-4 col-sm-4 col-4">
       <%= link_to "編集する", edit_user_path(@user.id), class: "btn btn-success" %>
     </div>
