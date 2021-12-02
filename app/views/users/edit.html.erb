@@ -1,59 +1,55 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-12">
-      <h1>
-        プロフィール編集
-      </h1>
+  <div class="row mb-5">
+    <div class="col-md-12 col-sm-12 col-12 border-bottom">
+      <h3>
+        <strong>
+          プロフィール編集
+        </strong>
+      </h3>
     </div>
   </div>
 
   <% if @user.errors.any? %>
-  <div class="row">
-    <p class="text-danger">
-      <%= @user.errors.count %>件の未入力の項目があります。
-    </p>
-  </div>
-  <div class="row">
-    <% @user.errors.full_messages.each do |message| %>
+    <div class="row ml-1">
       <p class="text-danger">
-        <%= "・" + message %>
+        <%= @user.errors.count %>件の未入力の項目があります。
       </p>
-    <% end %>
-  </div>
+    </div>
+    <div class="row ml-1">
+      <% @user.errors.full_messages.each do |message| %>
+        <p class="text-danger">
+          <%= "・" + message %>
+        </p>
+      <% end %>
+    </div>
   <% end %>
+
+  <div class="row mb-4 ml-1">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <%= attachment_image_tag @user, :profile_image, size: '150x150', fallback: "no_image.jpg"%>
+    </div>
+  </div>
 
   <%= form_with model:@user, local:true do |f| %>
-  <div class="row">
-    <div class="col-md-4 col-sm-4 col-4">
+
+    <div class="row mb-2 ml-1">
       <%= f.label :profile_image, "プロフィール画像" %>
     </div>
-    <div class="col-md-4 col-sm-4 col-4">
+    <div class="row mb-4 ml-1">
       <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
     </div>
-    <div class="col-md-4 col-sm-4 col-4">
-      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-4 col-sm-4 col-4">
+    <div class="row mb-2 ml-1">
       <%= f.label :name, "名前" %>
     </div>
-    <div class="col-md-4 col-sm-4 col-4">
+    <div class="row mb-3 ml-1">
       <%= f.text_field :name %>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-4 col-sm-4 col-4">
-      <%= f.submit "変更を保存", class: "btn btn-success" %>
+    <div class="row ml-1">
+      <%= f.submit "変更を保存", class: "btn btn-outline-success mt-5" %>
     </div>
-  </div>
 
   <% end %>
-  
-  <div class="d-flex align-items-center justify-content-center">
-      <%= link_to "退会", users_unsubscribe_path, class: "btn btn-danger" %>
-  </div>
 
 </div>
