@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-12">
-      <p>
-        本当に退会しますか？
-      </p>
+  <div class="row mb-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+      <h3>
+        <strong>
+          本当に退会しますか？
+        </strong>
+      </h3>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-6 col-sm-6 col-6">
-      <%= link_to "退会しない", users_my_page_path, class: "btn btn-primary" %>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-center mt-5">
+      <%= link_to "退会しない", users_my_page_path, class: "btn btn-outline-primary btn-lg" %>
     </div>
-    <div class="col-md-6 col-sm-6 col-6">
-      <%= link_to "退会する", users_withdraw_path, method: :patch, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }, class: "btn btn-danger" %>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 text-center mt-5">
+      <%= link_to "退会する", user_path(current_user.id), method: :delete, data: { confirm: "【確認】アカウントを削除してもよろしいですか？" }, class: "btn btn-outline-danger btn-lg" %>
     </div>
   </div>
 
