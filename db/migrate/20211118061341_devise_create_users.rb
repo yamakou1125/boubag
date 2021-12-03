@@ -34,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name
       t.string :profile_image_id
-      t.boolean :is_active, null: false, default: false
 
       t.timestamps null: false
     end
