@@ -20,9 +20,9 @@ class UsersController < ApplicationController
   def unsubscribe
   end
 
-  def withdraw
+  def destroy
     @user = current_user
-    @user.update(is_active: true)
+    @user.destroy
     reset_session
     redirect_to users_thanks_path
   end
