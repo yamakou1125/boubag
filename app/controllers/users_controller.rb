@@ -2,6 +2,8 @@ class UsersController < ApplicationController
 
   def mypage
     @user = current_user
+    @follows = @user.relationships.where(status: 1)
+    @followers = @user.reverse_of_relationships.where(status: 1)
   end
 
   def edit
