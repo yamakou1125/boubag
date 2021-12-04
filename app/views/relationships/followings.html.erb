@@ -3,7 +3,7 @@
     <div class="col-md-12 col-sm-12 col-12 border-bottom">
       <h3 class="text-success">
         <strong>
-          フォロー中
+          フォロー中 ： <%= @allows.count %> 人
         </strong>
       </h3>
     </div>
@@ -26,6 +26,7 @@
     <% end %>
   </div>
 
+  <% if @unapproved.any? %>
   <div class="row mb-3">
     <div class="col-md-12 col-sm-12 col-12 border-bottom mt-5">
       <h4>
@@ -48,6 +49,7 @@
       </div>
     <% end %>
   </div>
+  <% end %>
 
   <div class="row ml-1">
     <%= link_to "< 戻る", users_my_page_path %>
