@@ -1,27 +1,13 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-12">
-      <h1>
-        <%= @user.name %> さんの詳細情報
-      </h1>
+  <div class="row mb-3 border-bottom">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-3 mr-5">
+      <%= attachment_image_tag @user, :profile_image, size: '120x120', format:'jpg', fallback:"no_image.jpg" %>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4 col-sm-4 col-4">
-      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-4 col-sm-4 col-4">
-      <P>
-        名前
-      </P>
-    </div>
-    <div class="col-md-4 col-sm-4 col-4">
-      <%= @user.name %>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-7 d-flex align-items-center justify-content-left">
+      <strong>
+        <%= @user.name %>
+      </strong>
     </div>
   </div>
 
