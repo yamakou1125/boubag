@@ -33,14 +33,14 @@
   <%= form_with model:@user, local:true do |f| %>
 
     <div class="row mb-2 ml-1">
-      <%= f.label :profile_image, "プロフィール画像" %>
+      <%= f.label :profile_image, "プロフィール画像", class: "border-bottom" %>
     </div>
     <div class="row mb-4 ml-1">
       <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
     </div>
 
     <div class="row mb-2 ml-1">
-      <%= f.label :name, "名前" %>
+      <%= f.label :name, "名前", class: "border-bottom" %>
     </div>
     <div class="row mb-3 ml-1">
       <%= f.text_field :name %>
