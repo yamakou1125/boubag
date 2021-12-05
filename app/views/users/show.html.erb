@@ -1,17 +1,17 @@
 <div class="container">
 
   <div class="row mb-3 border-bottom">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-3 mr-5">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-12 mr-5">
       <%= attachment_image_tag @user, :profile_image, size: '120x120', format:'jpg', fallback:"no_image.jpg" %>
     </div>
-    <div class="col-lg-8 col-md-8 col-sm-8 col-7 d-flex align-items-center justify-content-left">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-12 d-flex align-items-center justify-content-left">
       <strong>
-        <%= @user.name %>
+        <%= @user.name + " " + "さんの防災アイテム" %>
       </strong>
     </div>
   </div>
 
-  <table class="table table-hover table-inverse table-bordered mt-5 mb-5 col-md-12">
+  <table class="table table-inverse table-bordered mt-5 mb-5 col-md-12">
     <thead class="bg-light">
       <tr>
         <th class="col-md-5 col-4 text-center">アイテム</th>
@@ -30,7 +30,7 @@
           <%= item. amount %>
         </td>
         <% if item.expiration_date <= Date.today %>
-          <td class="bg-danger text-center">
+          <td class="bg-danger text-center text-white">
             <%= item.expiration_date %>
           </td>
         <% elsif item.expiration_date <= Date.today+14 %>
