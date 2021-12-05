@@ -60,20 +60,6 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-  def check
-    @today = Date.today
-    @items = Item.all
-    @items.each do |item|
-      @d1 = Item.expiration_date
-      @difference = @d1 - @today
-      if @difference == 14
-        NotificationMailer.send_first_notice(item).deliver
-　    elsif difference == 0
-        NotificationMailer.send_last_notice(item).deliver
-      end
-    end
-  end
-
   private
 
   def item_params

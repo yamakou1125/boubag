@@ -25,7 +25,7 @@ set :output, "#{Rails.root}/log/cron.log"
 # end
 #
 every 1.days, at: '10:00 am' do
-  runner "ItemsController.check"
+  rails runner "ItemsHelper::Items.check"
   # runner "NotificationMailer.send_first_notice(item)"
   # runner "NotificationMailer.send_last_notice(item)"
 end
