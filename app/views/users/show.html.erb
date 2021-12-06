@@ -29,7 +29,11 @@
         <td class="text-center">
           <%= item. amount %>
         </td>
-        <% if item.expiration_date <= Date.today %>
+        <% if item.expiration_date.blank? %>
+        <td class="text-center">
+          なし
+        </td>
+        <% elsif item.expiration_date <= Date.today %>
           <td class="bg-danger text-center text-white">
             <%= item.expiration_date %>
           </td>
