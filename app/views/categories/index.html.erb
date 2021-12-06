@@ -9,26 +9,32 @@
     </div>
   </div>
 
-  <% @categories.each do |category| %>
-  <div class="row mb-2">
-    <div class="col-md-12 col-sm-12 col-12">
-      <%= link_to category_path(category.id), method: :get do %>
-        <%= category.name %>
-      <% end %>
+  <div class="row mt-4 mb-3">
+    <div class="d-flex align-items-center justify-content-center ml-3">
+      <i class="fas fa-suitcase"></i>
+    </div>
+    <div class="ml-2">
+      <%= link_to "アイテムを登録する", new_item_path, class: "btn btn-success" %>
     </div>
   </div>
-  <% end %>
 
-  <div class="row mt-5">
-    <div class="col-md-12 col-sm-12 col-12">
+  <div class="row mb-3">
+    <div class="d-flex align-items-center justify-content-center ml-3">
+      <i class="fas fa-search-plus"></i>
+    </div>
+    <div class="ml-2">
       <%= link_to "全アイテムを見る", items_path, class: "btn btn-primary" %>
     </div>
   </div>
 
-  <div class="row mt-3">
-    <div class="col-md-12 col-sm-12 col-12">
-      <%= link_to "アイテム登録", new_item_path, class: "btn btn-success" %>
+  <% @categories.each do |category| %>
+    <div class="row mb-2">
+      <div class="col-md-3 col-sm-3 co-l-3">
+        <%= link_to category_path(category.id), method: :get, class: "btn btn-light" do %>
+          <%= category.name %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 
 </div>
