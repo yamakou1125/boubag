@@ -12,10 +12,10 @@
   <% if @item.errors.any? %>
     <div class="row justify-content-center text-center text-danger">
       <p class="text-danger">
-        <%= @item.errors.count %>件の未入力の項目があります。
+        以下<%= @item.errors.count %>件を確認してください。
       </p>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-3">
       <ul>
       <% @item.errors.full_messages.each do |message| %>
         <li>
