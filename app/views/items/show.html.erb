@@ -9,7 +9,11 @@
     </div>
   </div>
 
-  <table class="table table-inverse table-bordered mt-5 mb-5 col-md-12">
+  <div class="row mt-3 ml-1">
+    カテゴリ：<%= @item.category.name %>
+  </div>
+
+  <table class="table table-inverse table-bordered mt-3 mb-5 col-md-12">
     <thead class="bg-light">
       <tr>
         <th class="col-lg-3 col-md-3 col-2 text-center">数量</th>
@@ -20,7 +24,7 @@
 
     <tbody>
       <tr>
-        <td class="text-center pr-4">
+        <td class="text-center">
           <%= @item.amount %>
         </td>
         <% if @item.expiration_date.blank? %>
@@ -62,9 +66,15 @@
 
   </table>
 
-  <div class="row">
-    <div class="col-md-6 col-sm-6 col-6">
+  <div class="row mb-5">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-6">
       <%= link_to "編集する", edit_item_path(@item.id), class: "btn btn-success" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+      <%= link_to "削除する", item_path(@item.id), method: :delete, data: { confirm: "【確認】このアイテムを削除してもよろしいですか？" }, class: "btn btn-outline-danger" %>
     </div>
   </div>
 
