@@ -29,23 +29,41 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center mr-2">
+                <div>
+                <i class="fas fa-user"></i>
+                </div>
                 <%= link_to "マイページ", users_my_page_path, class: 'nav-link text-dark' %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center mr-2">
+                <div>
+                  <i class="fas fa-wrench"></i>
+                </div>
                 <%= link_to "アイテム", categories_path, class: 'nav-link text-dark' %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center mr-2">
+                <div>
+                  <i class="fas fa-users"></i>
+                </div>
                 <%= link_to "ユーザを探す", users_search_path, class: 'nav-link text-dark' %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center">
+                <div>
+                  <i class="fas fa-sign-out-alt"></i>
+                </div>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
             <% else %>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center mr-2">
+                <div class="mr-1">
+                  <i class="fas fa-user-plus"></i>
+                </div>
                 <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
               </li>
-              <li class="nav-item">
+              <li class="nav-item d-flex align-items-center mr-2">
+                <div class="mr-1">
+                  <i class="fas fa-sign-in-alt"></i>
+                </div>
                 <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
               </li>
             <% end %>
