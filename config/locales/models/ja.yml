@@ -2,14 +2,17 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      item: アイテム
+      category: カテゴリ
     attributes:
       user:
         name: 名前
         email: メールアドレス
-    models:
-      item: アイテム
-    attributes:
+        password: パスワード
+      category:
+        name: カテゴリ
       item:
         name: アイテム名
         amount: 数量
         expiration_date: 期限
+        category_id: カテゴリ
