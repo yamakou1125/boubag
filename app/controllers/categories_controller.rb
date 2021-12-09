@@ -9,10 +9,4 @@ class CategoriesController < ApplicationController
     @items = @category.items.where(user_id: current_user.id)
   end
 
-  # private
-
-  # def category_params
-  #   params.require(:category).permit(:category_id)
-  # end
-
 end
