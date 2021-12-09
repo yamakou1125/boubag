@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   end
   resources :categories, only: [:index, :show]
   resources :items
+  resources :contacts, only: [:new, :create]
+  post 'contacts/confirm', to: 'contacts#confirm'
+  post 'contacts/back', to: 'contacts#back'
+  get 'done', to: 'contacts#done'
 
 
 end

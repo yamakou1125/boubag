@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row mb-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12 border-bottom">
+      <h3>
+        <strong>
+          入力内容確認
+        </strong>
+      </h3>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <strong>
+        お名前
+      </strong>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <%= @contact.name %>
+    </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <strong>
+        メールアドレス
+      </strong>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <%= @contact.email %>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <strong>
+        メッセージ
+      </strong>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+      <%= @contact.message %>
+    </div>
+  </div>
+
+
+<%= form_with model: @contact, url: contacts_path, local:true do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :message %>
+  <div class="mb-5">
+    <%= f.submit '送信する', class: "btn btn-outline-success" %>
+  </div>
+<% end %>
+
+<%= form_with model: @contact, url: contacts_back_path, local:true do |f| %>
+  <%= f.hidden_field :name %>
+  <%= f.hidden_field :email %>
+  <%= f.hidden_field :message %>
+  <div>
+    <%= f.submit '入力画面に戻る', class: "btn btn-outline-secondary" %>
+  </div>
+<% end %>
+
+</div>

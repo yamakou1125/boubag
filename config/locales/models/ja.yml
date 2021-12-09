@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       item: アイテム
       category: カテゴリ
+      contact: お問い合わせ
     attributes:
       user:
         name: 名前
@@ -16,3 +17,7 @@ ja:
         amount: 数量
         expiration_date: 期限
         category_id: カテゴリ
+      contact:
+        name: 名前
+        email: メールアドレス
+        message: メッセージ
