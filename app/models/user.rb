@@ -22,23 +22,22 @@ class User < ApplicationRecord
       end
   end
 
-  # フォロリク送信したときの処理
   def follow(user_id)
     relationships.create(followed_id: user_id)
   end
-  # フォロリク承認
+
   def allow(user_id)
     reverse_of_relationships.find_by(follower_id: user_id).update(status: 1)
   end
-  # フォロリクを拒否する時の処理
+
   def decline(user_id)
     reverse_of_relationships.find_by(follower_id: user_id).destroy
   end
-  # フォローを外すとき
+
   def unfollow(user_id)
     relationships.find_by(followed_id: user_id).destroy
   end
-  # フォローしているか判定
+
   def following?(user)
     followings.include?(user)
   end
