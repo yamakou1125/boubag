@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_action :authenticate_user!,except: [:top]
+  before_action :authenticate_user!,except: [:top, :thanks]
 
   def after_sign_in_path_for(resource)
     users_my_page_path

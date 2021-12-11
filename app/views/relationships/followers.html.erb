@@ -9,8 +9,9 @@
     </div>
   </div>
 
-  <div class="row mb-5 p-3">
+
     <% @allows.each do |a| %>
+    <div class="row mb-5 p-3">
       <% user = a.follower %>
       <div class="col-lg-3 col-md-3 col-sm-3 col-6 d-flex align-items-center justify-content-center">
         <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
@@ -20,8 +21,9 @@
           <%= user.name %>
         <% end %>
       </div>
+    </div>
     <% end %>
-  </div>
+
 
   <% if @unapproved.any? %>
     <div class="row mb-3">
