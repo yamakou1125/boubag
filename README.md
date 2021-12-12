@@ -60,4 +60,4 @@
 
 ## 使用素材
 
-- ICOOON MONO 　https://icooon-mono.com/
+- Font Awesome 　https://fontawesome.com/

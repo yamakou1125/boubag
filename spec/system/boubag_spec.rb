@@ -96,20 +96,21 @@ describe 'ユーザログインのテスト' do
       click_button 'ログイン'
     end
 
-      it 'ログイン後のリダイレクト先が、マイページになっている' do
-        expect(current_path).to eq '/users/my_page'
-      end
+    it 'ログイン後のリダイレクト先が、マイページになっている' do
+      expect(current_path).to eq '/users/my_page'
+    end
+  end
+
+  context 'ログイン失敗のテスト' do
+    before do
+      fill_in 'user[email]', with: ''
+      fill_in 'user[password]', with: ''
+      click_button 'ログイン'
     end
 
-    context 'ログイン失敗のテスト' do
-      before do
-        fill_in 'user[email]', with: ''
-        fill_in 'user[password]', with: ''
-        click_button 'ログイン'
-      end
-
-      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
-        expect(current_path).to eq '/users/sign_in'
-      end
+    it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+      expect(current_path).to eq '/users/sign_in'
     end
+  end
+
 end
