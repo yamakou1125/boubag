@@ -11,7 +11,7 @@
 
 
     <% @allows.each do |a| %>
-    <div class="row mb-5 p-3">
+    <div class="row mb-3 border-bottom p-3">
       <% user = a.follower %>
       <div class="col-lg-3 col-md-3 col-sm-3 col-6 d-flex align-items-center justify-content-center">
         <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
@@ -34,8 +34,8 @@
       </div>
     </div>
 
-    <div class="row mb-5 border-bottom p-3">
-      <% @unapproved.each do |u| %>
+    <% @unapproved.each do |u| %>
+      <div class="row mb-3 border-bottom p-3">
         <% user = u.follower %>
         <div class="col-lg-3 col-md-3 col-sm-3 col-12 d-flex align-items-center justify-content-center">
           <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format:'jpg', fallback:"no_image.jpg" %>
@@ -49,8 +49,9 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-6 d-flex align-items-center justify-content-center">
           <%= link_to "拒否する", user_decline_path(user.id), method: :delete, class: "btn btn-outline-danger" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+
   <% end %>
 
 </div>
