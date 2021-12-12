@@ -45,9 +45,28 @@ describe 'ユーザ新規登録のテスト' do
       expect(page).to have_button '登録'
     end
   end
+
+  context '新規登録成功のテスト' do
+    before do
+      fill_in 'user[name]', with: Faker::Lorem.characters(number: 10)
+      fill_in 'user[email]', with: Faker::Internet.email
+      fill_in 'user[password]', with: 'password'
+      fill_in 'user[password_confirmation]', with: 'password'
+    end
+
+    it '正しく新規登録される' do
+      expect { click_button '登録' }.to change(User.all, :count).by(1)
+    end
+    it '新規登録後のリダイレクト先が、新規登録できたユーザの詳細画面になっている' do
+      click_button '登録'
+      expect(current_path).to eq '/users/my_page'
+    end
+  end
 end
 
 describe 'ユーザログインのテスト' do
+  let(:user) { create(:user) }
+
   before do
     visit new_user_session_path
   end
@@ -69,34 +88,28 @@ describe 'ユーザログインのテスト' do
       expect(page).to have_button 'ログイン'
     end
   end
-end
 
-describe 'マイページのテスト' do
-  before do
-    visit users_my_page_path
-  end
+  context 'ログイン成功のテスト' do
+    before do
+      fill_in 'user[email]', with: user.email
+      fill_in 'user[password]', with: user.password
+      click_button 'ログイン'
+    end
 
-  context '表示内容の確認' do
-    it 'URLが正しい' do
-      expect(current_path).to eq '/users/my_page'
+      it 'ログイン後のリダイレクト先が、マイページになっている' do
+        expect(current_path).to eq '/users/my_page'
+      end
     end
-    it '「マイページ」と表示される' do
-      expect(page).to have_content 'マイページ'
+
+    context 'ログイン失敗のテスト' do
+      before do
+        fill_in 'user[email]', with: ''
+        fill_in 'user[password]', with: ''
+        click_button 'ログイン'
+      end
+
+      it 'ログインに失敗し、ログイン画面にリダイレクトされる' do
+        expect(current_path).to eq '/users/sign_in'
+      end
     end
-    it '「ユーザ名」が表示される' do
-      expect(page).to have_content 'user[name]'
-    end
-    it '「ユーザ写真」が表示される' do
-      expect(page).to have_content 'user[profile_image_id]'
-    end
-    it 'ユーザ編集ボタンが表示される' do
-      expect(page).to have_button 'プロフィールを編集'
-    end
-    it 'フォロワーボタンが表示される' do
-      expect(page).to have_button 'フォロワー'
-    end
-    it 'フォロー中ボタンが表示される' do
-      expect(page).to have_button 'フォロー中'
-    end
-  end
 end

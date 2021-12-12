@@ -7,3 +7,15 @@ describe 'モデルのテスト' do
     expect(FactoryBot.build(:user)).to be_valid
   end
 end
+
+describe 'バリデーションのテスト' do
+  subject { user.valid? }
+  let(:user) { build(:user) }
+
+  context 'nameカラム' do
+    it '空欄でないこと' do
+      user.name = ''
+      is_expected.to eq false
+    end
+  end
+end
