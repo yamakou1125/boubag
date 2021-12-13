@@ -10,6 +10,12 @@
     </div>
   </div>
 
+  <div class="row justify-content-center text-success mb-3">
+    <strong>
+      <%= flash[:notice] %>
+    </strong>
+  </div>
+
   <div class="row justify-content-center mb-3">
     <%= attachment_image_tag @user, :profile_image, size: '150x150', format:'jpg', fallback:"no_image.jpg" %>
   </div>
