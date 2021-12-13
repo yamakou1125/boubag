@@ -37,8 +37,34 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @items = @user.items
+    user = User.find(params[:id])
+    if current_user.following?(user)
+      @relationship = current_user.relationships.find_by(followed_id: user.id)
+      if @relationship.status == "allow"
+        @user = User.find(params[:id])
+        @items = @user.items
+      elsif current_user.follower?(user)
+        @reverse_of_relationship = current_user.reverse_of_relationships.find_by(follower_id: user.id)
+        if @reverse_of_relationship.status == "allow"
+          @user = User.find(params[:id])
+          @items = @user.items
+        else
+          redirect_to users_my_page_path
+        end
+      else
+        redirect_to users_my_page_path
+      end
+    elsif current_user.follower?(user)
+      @reverse_of_relationship = current_user.reverse_of_relationships.find_by(follower_id: user.id)
+      if @reverse_of_relationship.status == "allow"
+        @user = User.find(params[:id])
+        @items = @user.items
+      else
+        redirect_to users_my_page_path
+      end
+    else
+      redirect_to users_my_page_path
+    end
   end
 
   private
