@@ -21,9 +21,13 @@ class RelationshipsController < ApplicationController
   end
 
   def followings
-    user = User.find(params[:user_id])
-    @allows = user.relationships.where(status: 1)
-    @unapproved = user.relationships.where(status: 0)
+    if params["user_id"].to_i == current_user.id
+      user = User.find(params[:user_id])
+      @allows = user.relationships.where(status: 1)
+      @unapproved = user.relationships.where(status: 0)
+    else
+      redirect_to root_path
+    end
   end
 
   def followers
