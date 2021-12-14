@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
       @item.user_id = current_user.id
     end
     if @item.save
+      flash[:notice] = "登録が完了しました。"
       redirect_to items_path
     else
       render :new
@@ -48,6 +49,7 @@ class ItemsController < ApplicationController
     date = params.require(:item).permit(:expiration_date)
     if params[:item]["expiration_date(1i)"].blank? || params[:item]["expiration_date(2i)"].blank? || params[:item]["expiration_date(3i)"].blank?
       if @item.update(item_params)
+        flash[:notice] = "更新が完了しました。"
         redirect_to item_path(@item.id)
       else
         render :edit
@@ -55,6 +57,7 @@ class ItemsController < ApplicationController
     else
       expiration_date = Date.parse( date["expiration_date(1i)"] + "-" + date["expiration_date(2i)"] + "-" + date["expiration_date(3i)"] )
       if @item.update(item_params.merge(expiration_date: expiration_date))
+        flash[:notice] = "更新が完了しました。"
         redirect_to item_path(@item.id)
       else
         render :edit
@@ -64,8 +67,12 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to items_path
+    if @item.destroy
+      flash[:notice] = "削除しました。"
+      redirect_to items_path
+    else
+      render :show
+    end
   end
 
   private
