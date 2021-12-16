@@ -70,3 +70,6 @@ gem "refile-mini_magick"
 gem "enum_help"
 gem 'dotenv-rails'
 gem 'whenever', require: false
+group :production do
+  gem 'mysql2'
+end
